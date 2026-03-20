@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<!-- saved from url=(0072)file:///Users/kespiro7/Documents/sci-comm-design/infographic-mining.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Mining Life Cycle</title>
+  <link href="./The Mining Life Cycle_files/css2" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #111;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 60px 40px;
+    }
+
+    /* ===== INFOGRAPHIC WRAPPER ===== */
+    .infographic {
+      width: 800px;
+      background: #FAFAF8;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* ===== HEADER ===== */
+    .hdr {
+      background: #1A1A1A;
+      padding: 60px 64px 52px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hdr::before {
+      content: '';
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      border: 1px solid #333;
+      top: -60px;
+      right: -60px;
+    }
+
+    .hdr::after {
+      content: '';
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 1px solid #2A2A2A;
+      top: 20px;
+      right: 20px;
+    }
+
+    .hdr-tag {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #C8A85A;
+      margin-bottom: 22px;
+    }
+
+    .hdr h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 52px;
+      line-height: 1.1;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .hdr p {
+      font-size: 16px;
+      font-weight: 300;
+      color: #888;
+      line-height: 1.65;
+      max-width: 560px;
+    }
+
+    /* ===== PHONE INTRO ===== */
+    .phone-intro {
+      background: #F2EFE8;
+      padding: 40px 64px;
+      display: flex;
+      align-items: flex-start;
+      gap: 28px;
+      border-bottom: 1px solid #E8E4D8;
+    }
+
+    .phone-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      background: #1A1A1A;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      flex-shrink: 0;
+    }
+
+    .phone-intro-text h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: #1F180E;
+      margin-bottom: 8px;
+      padding-top: 4px;
+    }
+
+    .phone-intro-text p {
+      font-size: 14px;
+      font-weight: 400;
+      color: #675D4D;
+      line-height: 1.65;
+    }
+
+    /* ===== CYCLE STRIP ===== */
+    .cycle-strip {
+      background: #EDEAE2;
+      padding: 28px 64px;
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid #E0DDD5;
+    }
+
+    .cycle-step {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      position: relative;
+    }
+
+    .cycle-step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      top: 17px;
+      right: -2px;
+      width: 4px;
+      height: 2px;
+      background: #C0B8A8;
+    }
+
+    .cycle-dot {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+
+    .cy-1 { background: #CFE5F6; }
+    .cy-2 { background: #F8E3BC; }
+    .cy-3 { background: #F8CECA; }
+    .cy-4 { background: #CBEBD9; }
+
+    .cycle-step .cy-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #574E3F;
+      text-align: center;
+    }
+
+    /* ===== STAGES ===== */
+    .stage {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top colour bar */
+    .stage-bar {
+      height: 5px;
+    }
+
+    .stage-inner {
+      display: flex;
+      gap: 28px;
+      padding: 40px 64px 52px;
+    }
+
+    /* Left column: number badge + connector line */
+    .stage-left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-shrink: 0;
+      width: 56px;
+    }
+
+    .stage-num {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: 800;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    .stage-connector {
+      width: 2px;
+      flex: 1;
+      min-height: 32px;
+      margin-top: 10px;
+    }
+
+    /* Right column: all content */
+    .stage-content {
+      flex: 1;
+    }
+
+    .stage-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .stage-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 38px;
+      line-height: 1.1;
+      color: #141414;
+      margin-bottom: 16px;
+    }
+
+    .stage-desc {
+      font-size: 15px;
+      font-weight: 400;
+      color: #434343;
+      line-height: 1.72;
+      margin-bottom: 28px;
+    }
+
+    /* Phone example box */
+    .phone-box {
+      border-radius: 14px;
+      padding: 20px 22px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      margin-bottom: 18px;
+    }
+
+    .phone-box .pb-icon {
+      font-size: 20px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .phone-box .pb-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .phone-box .pb-text {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.65;
+    }
+
+    /* Regulatory box */
+    .reg-box {
+      border-radius: 14px;
+      padding: 20px 22px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      border-left: 3px solid;
+    }
+
+    .reg-box .rb-icon {
+      font-size: 17px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .reg-box .rb-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .reg-box .rb-text {
+      font-size: 13px;
+      font-weight: 400;
+      color: #555;
+      line-height: 1.65;
+    }
+
+    /* ===== STAGE 1 — EXPLORATION — BLUE ===== */
+    .stage-1 .stage-bar    { background: linear-gradient(90deg, #245BB7, #6AAEDE); }
+    .stage-1 .stage-num    { background: #245BB7; }
+    .stage-1 .stage-connector { background: #BDD3F1; }
+    .stage-1 .stage-eyebrow { color: #245BB7; }
+    .stage-1 .phone-box    { background: #E5F0FA; }
+    .stage-1 .phone-box .pb-label { color: #245BB7; }
+    .stage-1 .phone-box .pb-text  { color: #2D4767; }
+    .stage-1 .reg-box      { background: #F1F7FC; border-color: #245BB7; }
+
+    /* ===== STAGE 2 — DEVELOPMENT — AMBER ===== */
+    .stage-2 .stage-bar    { background: linear-gradient(90deg, #B66419, #E8AC50); }
+    .stage-2 .stage-num    { background: #B66419; }
+    .stage-2 .stage-connector { background: #ECD098; }
+    .stage-2 .stage-eyebrow { color: #B66419; }
+    .stage-2 .phone-box    { background: #FCF0D9; }
+    .stage-2 .phone-box .pb-label { color: #B66419; }
+    .stage-2 .phone-box .pb-text  { color: #663F19; }
+    .stage-2 .reg-box      { background: #FEF9F1; border-color: #B66419; }
+
+    /* ===== STAGE 3 — EXTRACTION — CORAL ===== */
+    .stage-3 .stage-bar    { background: linear-gradient(90deg, #B52425, #E87060); }
+    .stage-3 .stage-num    { background: #B52425; }
+    .stage-3 .stage-connector { background: #F0BBB7; }
+    .stage-3 .stage-eyebrow { color: #B52425; }
+    .stage-3 .phone-box    { background: #FDECEA; }
+    .stage-3 .phone-box .pb-label { color: #B52425; }
+    .stage-3 .phone-box .pb-text  { color: #662924; }
+    .stage-3 .reg-box      { background: #FEF6F5; border-color: #B52425; }
+
+    /* ===== STAGE 4 — RECLAMATION — GREEN ===== */
+    .stage-4 .stage-bar    { background: linear-gradient(90deg, #23693F, #5AB07A); }
+    .stage-4 .stage-num    { background: #23693F; }
+    .stage-4 .stage-connector { background: transparent; }
+    .stage-4 .stage-eyebrow { color: #23693F; }
+    .stage-4 .phone-box    { background: #E5F4EA; }
+    .stage-4 .phone-box .pb-label { color: #23693F; }
+    .stage-4 .phone-box .pb-text  { color: #21402A; }
+    .stage-4 .reg-box      { background: #F1FAF4; border-color: #23693F; }
+
+  </style>
+</head>
+<body>
+<div class="infographic">
+
+  <!-- HEADER -->
+  <div class="hdr">
+    <div class="hdr-tag">Science &amp; Industry · Explainer</div>
+    <h1>The Mining<br>Life Cycle</h1>
+    <p>From finding materials in the ground to restoring the land — these are the four phases of every mining cycle, explained through the journey of your smartphone.</p>
+  </div>
+
+  <!-- PHONE INTRO -->
+  <div class="phone-intro">
+    <div class="phone-icon">📱</div>
+    <div class="phone-intro-text">
+      <h3>Why your smartphone?</h3>
+      <p>A single modern smartphone contains over 60 elements — including lithium, cobalt, copper, and rare earth elements. Each of these elements require mining. Following these materials in your phone helps us understand how mining works.</p>
+    </div>
+  </div>
+
+  <!-- CYCLE OVERVIEW STRIP -->
+  <div class="cycle-strip">
+    <div class="cycle-step">
+      <div class="cycle-dot cy-1">🔍</div>
+      <span class="cy-label">Exploration</span>
+    </div>
+    <div class="cycle-step">
+      <div class="cycle-dot cy-2">🏗️</div>
+      <span class="cy-label">Development</span>
+    </div>
+    <div class="cycle-step">
+      <div class="cycle-dot cy-3">⛏️</div>
+      <span class="cy-label">Extraction</span>
+    </div>
+    <div class="cycle-step">
+      <div class="cycle-dot cy-4">🌱</div>
+      <span class="cy-label">Reclamation</span>
+    </div>
+  </div>
+
+  <!-- ===== STAGE 1 — EXPLORATION ===== -->
+  <div class="stage stage-1">
+    <div class="stage-bar"></div>
+    <div class="stage-inner">
+      <div class="stage-left">
+        <div class="stage-num">1</div>
+        <div class="stage-connector"></div>
+      </div>
+      <div class="stage-content">
+        <span class="stage-eyebrow">Phase 01 · Exploration</span>
+        <div class="stage-title">Finding What's Underground</div>
+        <p class="stage-desc">Before a single rock is moved, years of scientific discovery determine whether there are valuable materials present in the ground. They use tools like surveys, sampling, and drilling to understand what is below the surface and if it can be safely dug up.</p>
+
+        <div class="phone-box">
+          <span class="pb-icon">📱</span>
+          <div>
+            <span class="pb-label">Smartphone Connection</span>
+            <p class="pb-text">Lithium for your phone's battery is often found in brine lakes in South America. Geologists test these areas to estimate how much lithium is available before mining begins.</p>
+          </div>
+        </div>
+
+        <div class="reg-box">
+          <span class="rb-icon">⚖️</span>
+          <div>
+            <span class="rb-label">Regulatory Highlight</span>
+            <p class="rb-text">Companies must gain permits before exploration begins. They also have to assess the environmental impacts and communicate their plans with local and Indigenous communities.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== STAGE 2 — DEVELOPMENT ===== -->
+  <div class="stage stage-2">
+    <div class="stage-bar"></div>
+    <div class="stage-inner">
+      <div class="stage-left">
+        <div class="stage-num">2</div>
+        <div class="stage-connector"></div>
+      </div>
+      <div class="stage-content">
+        <span class="stage-eyebrow">Phase 02 · Development</span>
+        <div class="stage-title">Preparing the Site</div>
+        <p class="stage-desc">Once a resource is confirmed to be reasonable, the development phase begins — often lasting 5–15 years. This includes building roads, facilities, and systems needed to safely get the materials to process them.</p>
+
+        <div class="phone-box">
+          <span class="pb-icon">📱</span>
+          <div>
+            <span class="pb-label">Smartphone Connection</span>
+            <p class="pb-text">Copper (used in phone wiring) needs large processing areas that are built on-site before mining operations begin.</p>
+          </div>
+        </div>
+
+        <div class="reg-box">
+          <span class="rb-icon">⚖️</span>
+          <div>
+            <span class="rb-label">Regulatory Highlight</span>
+            <p class="rb-text">A full Environmental Impact Assessment (EIA) and mine plan must be approved before construction. These assess water use, tailings management, biodiversity impacts, and social effects. Nearby communities need to approve before anything is finalised.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== STAGE 3 — EXTRACTION ===== -->
+  <div class="stage stage-3">
+    <div class="stage-bar"></div>
+    <div class="stage-inner">
+      <div class="stage-left">
+        <div class="stage-num">3</div>
+        <div class="stage-connector"></div>
+      </div>
+      <div class="stage-content">
+        <span class="stage-eyebrow">Phase 03 · Extraction</span>
+        <div class="stage-title">Mining the Materials</div>
+        <p class="stage-desc">This is the operational phase. Materials are removed from the ground and then get processed. Depending on the location, mining can occur at the surface or underground. Operations can run continuously for 20–50+ years.</p>
+
+        <div class="phone-box">
+          <span class="pb-icon">📱</span>
+          <div>
+            <span class="pb-label">Smartphone Connection</span>
+            <p class="pb-text">The cobalt in your phone's battery comes with other metals. Large amounts of rock are processed to obtain small amounts of usable material.</p>
+          </div>
+        </div>
+
+        <div class="reg-box">
+          <span class="rb-icon">⚖️</span>
+          <div>
+            <span class="rb-label">Regulatory Highlight</span>
+            <p class="rb-text">Mines must hold a valid mining lease and align with monitoring requirements — including water quality, air emissions, and noise levels. Regulators can come and check in to see how it is going and how it is keeping up with the community. Annual reports are typically mandatory.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== STAGE 4 — RECLAMATION ===== -->
+  <div class="stage stage-4">
+    <div class="stage-bar"></div>
+    <div class="stage-inner">
+      <div class="stage-left">
+        <div class="stage-num">4</div>
+        <div class="stage-connector"></div>
+      </div>
+      <div class="stage-content">
+        <span class="stage-eyebrow">Phase 04 · Reclamation</span>
+        <div class="stage-title">Restoring the Land</div>
+        <p class="stage-desc">When mining is complete, companies need to restore the land. This includes reshaping the landscape, replanting vegetation, treating contaminated water, and monitoring the site for years or decades. Done well, reclaimed sites can become habitats or productive farmland.</p>
+
+        <div class="phone-box">
+          <span class="pb-icon">📱</span>
+          <div>
+            <span class="pb-label">Smartphone Connection</span>
+            <p class="pb-text">Technology companies like Apple and Samsung are constantly tracking where materials come from to make sure that they are responsible and keeping up the environmental standards.</p>
+          </div>
+        </div>
+
+        <div class="reg-box">
+          <span class="rb-icon">⚖️</span>
+          <div>
+            <span class="rb-label">Regulatory Highlight</span>
+            <p class="rb-text">Mining companies have to provide financial promises to make sure that the land is restored, even once the operations end. Monitoring after completion can last 10–30 years.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+
+</body></html>
